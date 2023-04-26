@@ -119,6 +119,7 @@ USER=user
 $ exit
 ```
 
+![image](flow_shell.jpg)
 ## Authors
 
 - Christophe Ngan
