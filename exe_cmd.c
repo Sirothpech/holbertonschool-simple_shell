@@ -18,7 +18,7 @@ void execute_command(char *command, char *args[], char *envp[])
 	{
 		if (access(command, X_OK) == 0)
 		{
-			execve(command, args, envp);
+			execve(command, args, environ);
 		}
 	}
 	else
@@ -41,7 +41,7 @@ void execute_command(char *command, char *args[], char *envp[])
 				(int)(sizeof(command_path) - token_len - 1), token, command);
 			if (access(command_path, X_OK) == 0)
 			{
-				execve(command_path, args, envp);
+				execve(command_path, args, environ);
 			}
 			token = strtok(NULL, ":");
 		}
@@ -49,5 +49,5 @@ void execute_command(char *command, char *args[], char *envp[])
 	printf("Erreur: %s: commande introuvable\n", command);
 	free(command);
 	free(args);
-	exit(EXIT_FAILURE);
+	exit(127);
 }
