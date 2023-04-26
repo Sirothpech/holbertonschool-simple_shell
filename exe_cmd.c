@@ -38,8 +38,7 @@ void execute_command(char *command, char *args[], char *envp[])
 				exit(EXIT_FAILURE);
 			}
 			sprintf(command_path, "%.*s/%s",
-				(int)(sizeof(command_path) - token_len - 1),
-				token, command);
+				(int)(sizeof(command_path) - token_len - 1), token, command);
 			if (access(command_path, X_OK) == 0)
 			{
 				execve(command_path, args, envp);
