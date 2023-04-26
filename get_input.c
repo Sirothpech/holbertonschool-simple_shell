@@ -13,7 +13,6 @@ char *get_input(char *prompt)
 	ssize_t line_length;
 
 	printf("%s", prompt);
-	fflush(stdout);
 
 	line_length = getline(&line, &line_size, stdin);
 
