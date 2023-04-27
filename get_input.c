@@ -25,6 +25,7 @@ char *get_input()
 		{
 			printf("\n");
 		}
+		free(line);
 		exit(EXIT_SUCCESS);
 	}
 
