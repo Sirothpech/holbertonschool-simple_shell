@@ -15,7 +15,8 @@ int main(void)
 
 	while (1)
 	{
-		input = get_input(prompt);
+		printf("%s", prompt);
+		input = get_input(line);
 		args = split_input(input);
 		if (args[0] == NULL || args[0][0] == '\0')
 		{
