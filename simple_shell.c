@@ -11,8 +11,7 @@ int main(void)
 	char **args;
 	pid_t pid;
 	int status;
-	char *path = _getenv("PATH");
-	char *input, *envp[2];
+	char *input;
 
 	while (1)
 	{
@@ -36,8 +35,7 @@ int main(void)
 		}
 		else if (pid == 0)
 		{
-			set_path_envp(envp, path);
-			execute_command(args[0], args, envp);
+			execute_command(args[0], args);
 		}
 		else
 		{
