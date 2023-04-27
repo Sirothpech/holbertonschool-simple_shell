@@ -1,0 +1,92 @@
+.TH Simple Shell
+.SH NAME
+
+.B Simple Shell - a basic Unix Shell
+
+.SH SYNOPSIS
+
+In order to run this program, you have to start by compiling it with:
+gcc 4.8.4 -Wall -Werror -Wextra -pedantic *.c -o hsh
+You can now use it by invoking:
+./hsh
+If you want to check memory leaks use:
+valgrind --leak-check=full ./hsh
+
+.SH DESCRIPTION
+
+The Simple Shell is a Holberton School project, it simulates a basic Unix Shell with its respective commands. It uses the POSIX API to implement many of the same functionalities of the first Ken Thompson's Shell.
+
+.SH RETURN VALUE
+
+A return command is used to exit from a shell function. It takes a parameter [N], if N is mentioned then it returns [N] and if N is not mentioned then it returns the status of the last command executed within the function or script. N can only be a numeric value. Note that echo $? can be used to display the last return status.
+
+.SH EXAMPLES
+
+.IP pwd
+
+username@your-regular-prompt:/holbertonschool-simple_shell# ./hsh
+
+$ pwd
+
+/holbertonschool-simple_shell
+
+$
+
+.IP ls
+
+username@your-regular-prompt:/holbertonschool-simple_shell# ./hsh
+
+$ ls
+
+AUTHORS gentenv.c main.h fonctionshell.c execcommand.c.
+$
+
+.IP exit
+
+username@your-regular-prompt:/holbertonschool-simple_shell# ./hsh
+
+$ exit
+
+username@your-regular-prompt:/holbertonschool-simple_shell#
+
+.SH FILES AND WHAT THEY DO
+
+.IP README.md
+contains information about this project
+
+.IP main.h
+header file, contains all prototypes and libriaries
+
+.IP fonctionshell.c
+main function, runs our shell, the analysis, 
+and create the child, exit our shell when 'exit' is typed.
+
+.IP set_path
+organize the path variable in memory
+
+.IP split_imput
+copy the imput.
+
+.IP execomand.c
+executes the program and kill the child process.
+
+.IP getenv.c
+contains the function that prints the environment.
+
+.IP get_imput 
+initialize the pront and save the typed by the user.
+
+.IP AUTHORS
+file containing the name of the crontributors to this repo
+
+.IP man_1_simple_shell
+the current file, the manual of our shell
+
+.SH BUGS
+We are currently managing the bugs that can be found in our program.
+
+.SH AUTHORS
+Lecuyer gaetan-Christophe Ngan-Chaherdine Abdou.
+
+.SH DATE
+25 avril 2025.

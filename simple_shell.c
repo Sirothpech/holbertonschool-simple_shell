@@ -7,16 +7,14 @@
 
 int main(void)
 {
-	char prompt[] = "$ ";
 	char **args;
 	pid_t pid;
 	int status;
 	char *input;
 	char *line;
-	
+
 	while (1)
 	{
-		printf("%s", prompt);
 		input = get_input(&line);
 		args = split_input(input);
 		if (args[0] == NULL || args[0][0] == '\0')

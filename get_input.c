@@ -12,11 +12,19 @@ char *get_input()
 	size_t line_size = 0;
 	ssize_t line_length;
 
+	if (isatty(fileno(stdin)))
+	{
+		printf("$ ");
+	}
+
 	line_length = getline(&line, &line_size, stdin);
 
 	if (line_length == -1)
 	{
-		printf("\n");
+		if (isatty(fileno(stdin)))
+		{
+			printf("\n");
+		}
 		exit(EXIT_SUCCESS);
 	}
 
