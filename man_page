@@ -58,14 +58,23 @@ contains information about this project
 header file, contains all prototypes and libriaries
 
 .IP fonctionshell.c
-main function, runs our shell,save the data typed by the user, the analysis, 
-show the pront, and create the child, exit our shell when 'exit' is typed.
+main function, runs our shell, the analysis, 
+and create the child, exit our shell when 'exit' is typed.
 
-.IP execute.c
-executes the program and kill the child process
+.IP set_path
+organize the path variable in memory
+
+.IP split_imput
+copy the imput.
+
+.IP execomand.c
+executes the program and kill the child process.
 
 .IP getenv.c
-contains the function that prints the environment
+contains the function that prints the environment.
+
+.IP get_imput 
+initialize the pront and save the typed by the user.
 
 .IP AUTHORS
 file containing the name of the crontributors to this repo
