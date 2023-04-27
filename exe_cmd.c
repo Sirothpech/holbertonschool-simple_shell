@@ -7,9 +7,11 @@
  * @envp: array environment
  */
 
-void execute_command(char *command, char *args[], char *envp[])
+void execute_command(char *command, char *args[])
 {
-	if (envp[0] == NULL)
+	char *path = _getenv("PATH");
+
+	if (path  == NULL)
 	{
 		printf("Erreur: la variable d'env PATH n'est pas définie.\n");
 		exit(EXIT_FAILURE);
@@ -23,7 +25,7 @@ void execute_command(char *command, char *args[], char *envp[])
 	}
 	else
 	{
-		char *token = strtok(envp[0], ":");
+		char *token = strtok(path, ":");
 
 		while (token != NULL)
 		{

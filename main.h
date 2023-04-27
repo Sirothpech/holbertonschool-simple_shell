@@ -10,9 +10,8 @@
 
 extern char **environ;
 char *_getenv(const char *name);
-void execute_command(char *command, char *args[], char *envp[]);
+void execute_command(char *command, char *args[]);
 char *get_input(char *prompt);
 char **split_input(char *input);
-void set_path_envp(char *envp[], char *path);
 
 #endif
