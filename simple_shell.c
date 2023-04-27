@@ -18,8 +18,10 @@ int main(void)
 	{
 		input = get_input(prompt);
 		args = split_input(input);
-		if (args[0] == NULL)
+		if (args[0] == NULL || args[0][0] == '\0')
 		{
+			free(input);
+			free(args);
 			continue;
 		}
 		if (strcmp(args[0], "exit") == 0)
