@@ -11,7 +11,7 @@
 extern char **environ;
 char *_getenv(const char *name);
 void execute_command(char *command, char *args[]);
-char *get_input(char *prompt);
+char *get_input();
 char **split_input(char *input);
 
 #endif

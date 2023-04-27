@@ -6,13 +6,11 @@
  * Return: a pointer to the input string
  */
 
-char *get_input(char *prompt)
+char *get_input()
 {
 	char *line = NULL;
 	size_t line_size = 0;
 	ssize_t line_length;
-
-	printf("%s", prompt);
 
 	line_length = getline(&line, &line_size, stdin);
 
