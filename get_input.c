@@ -2,7 +2,6 @@
 
 /**
  * get_input - read input from the user
- * @prompt: the prompt to display to the user
  * Return: a pointer to the input string
  */
 

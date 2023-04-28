@@ -4,7 +4,6 @@
  * execute_command - command which execute program
  * @command: command input by user
  * @args: array argument command
- * @envp: array environment
  */
 
 void execute_command(char *command, char *args[])
@@ -29,26 +28,21 @@ void execute_command(char *command, char *args[])
 
 		while (token != NULL)
 		{
-			char command_path[PATH_MAX];
-			int token_len = strlen(token);
-			int command_len = strlen(command);
-			int command_path_len = token_len + 1 + command_len + 1;
+			char *command_path = malloc(strlen(token) + strlen(command) + 2);
 
-			if (command_path_len >= (int)sizeof(command_path))
-			{
-				printf("Erreur: dépassement de tampon.\n");
-				exit(EXIT_FAILURE);
-			}
-			sprintf(command_path, "%.*s/%s",
-				(int)(sizeof(command_path) - token_len - 1), token, command);
+			sprintf(command_path, "%s/%s", token, command);
+
 			if (access(command_path, X_OK) == 0)
 			{
 				execve(command_path, args, environ);
+				perror("execve");
+				exit(EXIT_FAILURE);
 			}
+			free(command_path);
 			token = strtok(NULL, ":");
 		}
 	}
-	printf("Erreur: %s: commande introuvable\n", command);
+	fprintf(stderr, "%s: command not found\n", command);
 	free(command);
 	free(args);
 	exit(127);
